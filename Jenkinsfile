@@ -48,9 +48,11 @@ stage('Docker Hub Login and push image') {
                 }
             }
         }
+		stage('k8s'){
 		steps{
-		 sh 'kubectl apply -f nishant.yml'
+		 sh 'kubectl apply -f nishant.yml '
 		}
+	}
 	}
 }
      
