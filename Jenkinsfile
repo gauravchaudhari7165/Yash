@@ -24,7 +24,7 @@ stage('Docker Hub Login and push image') {
                 }
             }
         }
-       stage('Build'){
+       stage('k8s'){
 		  steps{
 		     sh 'kubectl get nodes'
 		   }
