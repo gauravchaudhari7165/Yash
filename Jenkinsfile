@@ -3,12 +3,12 @@ pipeline{
     stages{
 	stage('Build'){
 		steps{
-		 sh 'Docker build -t myDockerImage .'
+		 sh 'docker build -t myDockerImage .'
 		}
 	}
 	stage('Run'){
 	    steps{
-		sh 'Docker run myDockerImage'
+		sh 'docker run myDockerImage'
 	    }
 	}
     }
