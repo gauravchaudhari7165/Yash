@@ -3,7 +3,7 @@ pipeline{
     stages{
 	stage('Build'){
 		steps{
-		 sh 'docker build -t gauravchaudhari7165/new_img .'
+		 sh 'docker build -t gagan535/new_img .'
 		}
 	}
 stage('Docker Hub Login and push image') {
