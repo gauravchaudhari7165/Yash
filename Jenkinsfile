@@ -29,7 +29,7 @@ stage('Docker Hub Login and push image') {
             steps {
                 withCredentials([
                     file(
-                        credentialsId: 'minikube-config-vm',
+                        credentialsId: 'k8s-cred',
                         variable: 'KUBECONFIG'
                     )
                 ]) {
