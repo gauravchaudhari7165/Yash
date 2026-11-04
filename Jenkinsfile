@@ -6,15 +6,23 @@ pipeline{
 		 sh 'docker build -t gauravchaudhari7165/new_img .'
 		}
 	}
-	stage('run'){
-	    steps{
-		sh 'docker run mydockerimage'
-	    }
-	}
-			
-	
-	
-
-		
+stage('Docker Hub Login and push image') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'my-dockerhub-key',
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )
+                ]) {
+                    sh '''
+                        set +x
+                        echo "$DOCKER_PASS" |
+                            docker login -u "$DOCKER_USER" -p $DOCKER_PASS
+						docker push $DOCKER_USER/new_img
+                    '''
+                }
+            }
+        }
     }
 }
