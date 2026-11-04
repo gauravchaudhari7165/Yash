@@ -8,7 +8,7 @@ pipeline{
 	}
 	stage('Compile'){
 	    steps{
-		sh 'javac Yash.java'
+		sh 'javac --release 21 Yash.java'
 	    }
 	}
 	stage('Execute'){
