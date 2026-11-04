@@ -24,5 +24,10 @@ stage('Docker Hub Login and push image') {
                 }
             }
         }
-    }
-}
+       stage('Build'){
+		  steps{
+		     sh 'kubectl get nodes'
+		   }
+	     } 
+	   }
+     }
