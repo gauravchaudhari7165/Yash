@@ -1,19 +1,13 @@
 pipeline{
     agent any
     stages{
-	stage('Checkout'){
+	stage('Build'){
+		steps{
+		 sh 'Docker build -t myDockerImage .'
+		}
+	stage('Run'){
 	    steps{
-		checkout scm
-	    }
-	}
-	stage('Compile'){
-	    steps{
-		sh 'javac --release 21 Yash.java'
-	    }
-	}
-	stage('Execute'){
-	    steps{
-		sh 'java Yash'
+		sh 'Docker run myDockerImage'
 	    }
 	}
     }
