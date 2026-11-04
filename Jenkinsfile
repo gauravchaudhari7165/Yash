@@ -48,6 +48,9 @@ stage('Docker Hub Login and push image') {
                 }
             }
         }
+		steps{
+		 sh 'kubectl apply -f nishant.yml'
+		}
 	}
 }
      
