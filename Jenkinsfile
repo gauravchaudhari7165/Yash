@@ -44,15 +44,12 @@ stage('Docker Hub Login and push image') {
 
                         echo "Checking cluster nodes..."
                         kubectl get nodes
+						kubectl apply -f nishant.yml
                     '''
                 }
             }
         }
-		stage('k8s'){
-		steps{
-		 sh 'kubectl apply -f nishant.yml '
-		}
-	}
+	
 	}
 }
      
